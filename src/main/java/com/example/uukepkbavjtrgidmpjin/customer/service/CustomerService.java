@@ -70,9 +70,8 @@ public class CustomerService {
         return customerRepository.findWithLimitAndOffset(filter.getOffset(), filter.getLimit());
     }
 
-    public ResponseEntity<CustomerResponse> updateCustomer(CustomerRequest customerRequest, String customerId) {
-        Integer.parseInt(customerId);
-        if (customerRepository.existsById(Integer.valueOf(customerId))) {
+    public ResponseEntity<CustomerResponse> updateCustomer(CustomerRequest customerRequest, int customerId) {
+        if (customerRepository.existsById(customerId)) {
             Customer existingCustomer = customerRepository.getById(Integer.valueOf(customerId));
 
             copy(customerRequest, existingCustomer);

@@ -24,13 +24,13 @@ public class CustomerController {
         return customerService.createCustomer(customerRequest);
     }
 
-    @DeleteMapping("/deleteCustomerById")
-    public ResponseEntity<CustomerResponse> deleteCustomer(@RequestParam int id) {
+    @DeleteMapping("/deleteCustomerById/{id}")
+    public ResponseEntity<CustomerResponse> deleteCustomer(@PathVariable int id) {
         return customerService.deleteById(id);
     }
 
-    @GetMapping("/getCustomerById")
-    public ResponseEntity<CustomerResponse> getCustomer(@RequestParam int id) {
+    @GetMapping("/getCustomerById/{id}")
+    public ResponseEntity<CustomerResponse> getCustomer(@PathVariable int id) {
         return customerService.getById(id);
     }
 
@@ -40,7 +40,7 @@ public class CustomerController {
     }
 
     @PatchMapping("/updateCustomer/{customerId}")
-    public ResponseEntity<CustomerResponse> updateCustomer(@RequestBody CustomerRequest customerRequest, @PathVariable String customerId) {
+    public ResponseEntity<CustomerResponse> updateCustomer(@RequestBody CustomerRequest customerRequest, @PathVariable int customerId) {
         return customerService.updateCustomer(customerRequest, customerId);
     }
 }
