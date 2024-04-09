@@ -7,4 +7,4 @@ services:
       POSTGRES_USER: "pguser"
       POSTGRES_PASSWORD: "pguser"
     ports:
-      - "5432:5432"
+      - "12312:5432"
